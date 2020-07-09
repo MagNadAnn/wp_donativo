@@ -449,6 +449,7 @@ Featured slide
     box-sizing: border-box;
     border: #4dd1a9 solid 3px;
     border-radius: 2px;
+    z-index: 2;
 }
 
 @media (min-width: 700px) {
@@ -469,6 +470,10 @@ Featured slide
     }
 }
 
+.featured-slide > .chimney {
+    z-index: 3;
+}
+
 
 /*
 --------------------
@@ -481,8 +486,9 @@ Side drawings
 
     .side-drawings {
         position: absolute;
-        width: 30%;
+        width: calc((100% - 37.5em) / 2);
         height: 100%;
+        z-index: 1;
     }
 
     .side-drawings.cover {
@@ -490,8 +496,16 @@ Side drawings
         background-repeat: no-repeat;
     }
 
-    .side-drawings.left { left: 0; background-position: top left; }
-    .side-drawings.right { right: 0; background-position: top right; }
+    .side-drawings.left {
+        right: calc(((100% - 37.5em) / 2) + 37.5em);
+        background-position: top left;
+    }
+
+    .side-drawings.right {
+        left: calc(((100% - 37.5em) / 2) + 37.5em);
+        background-position: bottom right;
+    }
+
     .side-drawings.top { top: 0; }
     .side-drawings.bottom { bottom: 0; }
 
