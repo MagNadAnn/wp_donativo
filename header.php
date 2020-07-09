@@ -1,0 +1,48 @@
+<?php
+/**
+ * The template for displaying the header
+ *
+ * Displays all of the head element and everything up until the "site-content" div.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Fifteen
+ * @since Twenty Fifteen 1.0
+ */
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php wp_head(); ?>
+  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+  <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css">
+  <title><?php bloginfo( 'name' ); ?> - <?php the_title(); ?></title>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Quicksand:wght@700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+<?php wp_footer(); ?>
+<div class="site">
+    <nav class="main-nav-wrap">
+        <a href="<?php bloginfo( 'url' ); ?>" class="main-nav__logo main-nav__logo_mobile"><span>Donativo</span></a>
+        <input type="checkbox" id="main-nav__toggler">
+        <div id="main-nav__hamburger" class="button-primary"><div id="main-nav__hamburger__line"></div></div>
+        <div id="main-nav__splash">
+            <div id="main-nav__splash_1">
+                <div id="main-nav__splash_2">
+                    <div class="main-nav__container">
+                        <a href="<?php bloginfo( 'url' ); ?>" class="main-nav__logo main-nav__logo_desktop"><span>Donativo</span></a>
+                        <?php
+							if ( has_nav_menu( 'principal' ) ) : ?>
+								<?php wp_nav_menu(array(
+									'menu' => 'Principal', 
+									'menu_class' => 'main-menu',
+									'walker' => new CSS_Menu_Walker()
+								)); ?>
+							<?php endif;
+						?>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </nav>

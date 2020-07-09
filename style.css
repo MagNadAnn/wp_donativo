@@ -17,7 +17,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Fira Sans', sans-serif;
-    color: #33383d;
+    color: #2d4b89;
 }
 
 /*
@@ -42,20 +42,20 @@ a {
     display: inline;
     padding: 0 0.2em;
     transition: all 0.2s;
-    color: red;
+    color: #38b08c;
     cursor: pointer;
 }
 
 a:hover,
 a:focus {
     color: #ffffff;
-    background-color: red;
+    background-color: #38b08c;
     text-decoration: none;
 }
 
 a:active {
     color: #ffffff;
-    background-color: red;
+    background-color: #4dd1a9;
     text-decoration: none;
 }
 
@@ -66,8 +66,8 @@ a > svg {
 }
 
 [class*="bg-d"] a { color: #ffffff}
-[class*="bg-d"] a:hover, [class*="bg-d"] a:focus { color: red; background-color: #ffffff; }
-[class*="bg-d"] a:active { color: #ffffff}
+[class*="bg-d"] a:hover, [class*="bg-d"] a:focus { color: #38b08c; background-color: #ffffff; }
+[class*="bg-d"] a:active { color: #4dd1a9; background-color: #ffffff; }
 
 /*
 --------------------
@@ -84,36 +84,32 @@ h1, h2, h3, h4, h5 {
     h1, h2, h3, h4, h5, h6 { text-align: center; }
 }
 
-/* ----- H1 ----- */
+/* ----- H1 & h2 ----- */
 
-h1 {}
+h1, h2 {
+    font-family: 'Quicksand', sans-serif;
+    color: #e3415c;
+    text-transform: uppercase;
+}
 
 @media (min-width: 500px) {
-    h1 { font-size: 4em; }
+    h1, h2 { font-size: 3em; }
 }
 
 @media (max-width: 499px) {
-    h1 { font-size: calc(0.106 * 100vw); }
-}
-
-/* ----- H2 ----- */
-
-h2 {}
-
-@media (min-width: 500px) {
-    h2 { font-size: 3.5em; }
-}
-
-@media (max-width: 499px) {
-    h2 { font-size: calc(0.1 * 100vw); }
+    h1, h2 { font-size: calc(0.106 * 100vw); }
 }
 
 /* ----- H3 ----- */
 
-h3 {}
+h3 {
+    font-family: 'Quicksand', sans-serif;
+    color: #fa5b7d;
+    text-transform: uppercase;
+}
 
 @media (min-width: 500px) {
-    h3 { font-size: 2.5em; }
+    h3 { font-size: 2em; }
 }
 
 @media (max-width: 499px) {
@@ -123,6 +119,8 @@ h3 {}
 /* ----- H4 ----- */
 
 h4 {
+    font-family: 'Quicksand', sans-serif;
+    color: #f7b90f;
     font-size: 1.75em;
 }
 
@@ -221,7 +219,14 @@ SECTIONS
 }
 
 @media (min-width: 1024px) {
-    .fh-section { min-height: 100vh; }
+    .fh-section { height: 100vh; }
+}
+
+@media (max-width: 1023px) {
+    .fh-section {
+        height: auto;
+        min-height: 100vh;
+    }
 }
 
 /*
@@ -404,3 +409,157 @@ BIG AND SMALL SCREENS EXCLUSIVITIES
         display: none !important;
     }
 }
+   
+/*
+==========================================================
+==========================================================
+DECORATIONS
+==========================================================
+==========================================================
+*/
+
+.bg-d-marine_light { background-color:#2d4b89; }
+
+.bg-d-mint_light { background-color: #4dd1a9; }
+.bg-d-mint_medium { background-color: #38b08c; }
+.bg-d-mint_dark { background-color: #13a588; }
+
+.bg-d-pink_light { background-color: #fa5b7d; }
+.bg-d-pink_medium { background-color: #e3415c; }
+.bg-d-pink_dark { background-color: #d00f4c; }
+
+.bg-d-yellow_light { background-color: #ffcb1f; }
+.bg-d-yellow_medium { background-color: #f7b90f; }
+.bg-d-yellow_dark { background-color: #eda600; }
+
+/*
+--------------------
+Featured slide
+--------------------
+*/
+
+.featured-slide__frame {
+    position: absolute;
+    width: calc(100% - 4em);
+    height: calc(100% - 4em);
+    top: 2em;
+    left: 2em;
+    border: #4dd1a9 solid 3px;
+    border-radius: 2px;
+
+}
+
+
+/*
+--------------------
+Side drawings
+--------------------
+*/
+
+
+@media (min-width:1024px) {
+
+    .side-drawings {
+        position: absolute;
+        width: 30%;
+        height: 100%;
+    }
+
+    .side-drawings.cover {
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .side-drawings.left { left: 0; background-position: top left; }
+    .side-drawings.right { right: 0; background-position: top right; }
+    .side-drawings.top { top: 0; }
+    .side-drawings.bottom { bottom: 0; }
+
+    .side-drawings.standard.left { background-image: url(img/deco_fh_gauche_01.png); }
+    .side-drawings.standard.right { background-image: url(img/deco_fh_droite_01.png); }
+
+}
+
+/*
+--------------------
+Triangle
+--------------------
+*/
+
+.triangle {
+    position: absolute;
+    background-image: url("img/triangle.png");
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+.triangle.top.left {
+    width: 75%;
+    height: 50%;
+    top: 1em;
+    left: 1em;
+}
+
+.triangle.bottom.right {
+    transform: rotate(180deg);
+    width: 50%;
+    height: 30%;
+    bottom: 1em;
+    right: 1em;
+}
+
+/*
+==========================================================
+==========================================================
+MIXINS BLOCK
+==========================================================
+==========================================================
+*/
+
+/*
+--------------------
+BLOCK V
+--------------------
+pour centrer des contenus verticalement
+*/
+
+[class*="block_v"] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.block_v-center {
+    justify-content: center;
+}
+
+.block_v-bottom {
+    justify-content: flex-end;
+}
+
+/*
+==========================================================
+==========================================================
+WORDPRESS ELEMENT
+==========================================================
+==========================================================
+*/
+
+/*
+--------------------
+FONT SIZES
+--------------------
+*/
+
+.has-medium-font-size,
+.has-large-font-size,
+.has-huge-font-size {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.has-medium-font-size { font-size: 1.25em; }
+
+.has-large-font-size { font-size: 1.5em; }
+
+.has-huge-font-size { font-size: 1.8em; }
