@@ -8,7 +8,9 @@ function register_my_menus() {
     register_nav_menus(
         array(
             'principal' => __( 'Principal' ),
-            'footer' => __( 'Footer' ),
+            'footer_1' => __( 'Footer 1' ),
+            'footer_2' => __( 'Footer 2' ),
+            'footer_3' => __( 'Footer 3' ),
         )
     );
 }
@@ -109,7 +111,7 @@ class CSS_Menu_WalkerFooter extends Walker {
 		}
 		
 		$class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
-		$class_names = $class_names ? ' class="footer-site__links_item ' . esc_attr($class_names) . '"' : '';
+		$class_names = $class_names ? ' class="footer__links_item ' . esc_attr($class_names) . '"' : '';
 		
 		$id = apply_filters('nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args);
 		$id = $id ? ' id="' . esc_attr($id) . '"' : '';
@@ -122,7 +124,7 @@ class CSS_Menu_WalkerFooter extends Walker {
         $attributes .= ! empty($item->url)        ? ' href="'   . esc_attr($item->url       ) .'"' : '';
 		
 		$item_output = $args->before;
-		$item_output .= '<a'. $attributes .' class="footer-site__link">';
+		$item_output .= '<a'. $attributes .' class="link-alt">';
 		$item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
 		$item_output .= '</a>';
 		$item_output .= $args->after;
