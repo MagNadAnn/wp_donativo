@@ -199,6 +199,10 @@ SITE
     left: 0;
 }
 
+.site.with-wp-bar {
+    top: 32px;
+}
+
 /*
 --------------------
 SECTIONS
@@ -409,6 +413,381 @@ BIG AND SMALL SCREENS EXCLUSIVITIES
     .big-screens {
         display: none !important;
     }
+}
+
+/*
+==========================================================
+==========================================================
+MAIN-NAV
+==========================================================
+==========================================================
+*/
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+}
+
+.main-nav__logo {
+    display: block;
+    height: 1.75em;
+    background-color: transparent;
+    padding: 0;
+    overflow: visible;
+}
+
+.main-nav__logo:hover {
+    background-color: #ffffff;
+}
+
+.main-nav__logo > span {
+    display: block;
+    position: relative;
+    top: -0.75em;
+    text-indent: -1000px;
+    background-image: url(img/logo_main-menu_white.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: all 0.2s;
+    background-size: 100% 100%;
+}
+
+.main-nav__logo:hover > span,
+.main-nav__logo:focus > span {
+    background-image: url(img/logo_main-menu_mint_dark.png);
+}
+
+.main-nav__logo:active > span {
+    background-image: url(img/logo_main-menu_mint_medium.png);
+}
+
+.main-menu {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.main-menu__link {
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1em;
+    color: #fff;
+}
+
+.main-menu__link:hover,
+.main-menu__link:focus {
+    background-color: #ffffff;
+    color: #38b08c;
+}
+
+.main-menu__link:active {
+    color: #13a588;
+}
+
+/*
+.main-menu__sub {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+*/
+
+
+@media (min-width: 800px) {
+
+    .main-nav {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .main-nav.with-wp-bar {
+        top: 32px;
+    }
+
+    .main-nav__logo_desktop {
+        margin: 0 1.5em;
+    }
+
+    .main-nav__logo_desktop > span {
+        width: 8em;
+        height: 3em;
+        margin: 0 0.25rem;
+    }
+
+    .main-nav__logo_mobile {
+        display: none;
+    }
+
+    #main-nav__toggler,
+    #main-nav__hamburger {
+        display: none;
+    }
+
+    .main-menu__wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0.5em 0;
+    }
+
+    .main-menu {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        padding: 0.5em;
+    }
+
+    .main-menu__item {
+        margin: 0 1em;
+    }
+
+    .main-menu__link {
+        padding: 0.375rem 0.5rem;
+        text-align: center;
+        font-size: 0.875em;
+    }
+
+    /* --- sous menu ---
+
+    .main-menu__sub {
+        display: none;
+    }
+
+    .main-menu__item.has-sub:hover > .main-menu__sub,
+    .main-menu__item.has-sub:focus > .main-menu__sub {
+        display: block;
+    }
+
+    .main-menu__item.has-sub > .main-menu__link {
+        position: relative;
+        padding-right: 1.5rem;
+    }
+
+    .main-menu__item.has-sub > .main-menu__link:after {
+        content: ">";
+        display: block;
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        top: calc(50% - 0.5rem);
+        right: 0.25rem;
+        transform: rotate(90deg);
+        transform-origin: center;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        padding-left: 2px;
+    }
+
+    .main-menu__item.has-sub:hover > .main-menu__link:after,
+    .main-menu__item.has-sub:focus > .main-menu__link:after {
+        transform: rotate(-90deg);
+    }
+
+    .main-menu__sub {
+        position: absolute;
+        width: 12em;
+        background-color: #d12900;
+    }
+
+    .main-menu__sub > .main-menu__item {
+        margin: 0.25em;
+    }
+
+    */
+
+}
+
+@media (max-width: 799px) {
+
+    .main-nav {
+        padding: 1em 0;
+        background-color: #4dd1a9;
+    }
+
+    .main-nav.with-wp-bar {
+        top: 46px;
+    }
+    
+    .main-nav__logo_mobile {
+        width: 8em;
+        margin: 0 1em;
+    }
+
+    .main-nav__logo_mobile > span {
+        width: 8em;
+        height: 3em;
+    }
+
+    .main-menu {
+        padding: 1px 0;
+    }
+
+    .main-menu__item {
+        margin: 1em 0;
+    }
+
+    .main-menu__link {
+        padding: 0.5em;
+        font-size: 1em;
+        text-align: center;
+    }
+
+    /* --- Menu Brad Traversy --- */
+
+    #main-nav__toggler {
+        position: absolute;
+        top: 0;
+        right: 1em ;
+        z-index: 2;
+        cursor: pointer;
+        width: 44px;
+        height: 25px;
+        box-sizing: border-box;
+        opacity: 0;
+        margin: 1em 2px 1em 0;
+    }
+
+    #main-nav__hamburger {
+        position: absolute;
+        top: 0;
+        right: 1em;
+        z-index: 1;
+        width: 44px;
+        height: 25px;
+        box-sizing: border-box;
+        padding: 5px 8px;
+        margin: 1em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+    /* Hamburger Line */
+    #main-nav__hamburger__line {
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+    }
+
+    /* Hamburger Lines - Top & Bottom */
+    #main-nav__hamburger__line::before,
+    #main-nav__hamburger__line::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: -10px;
+        width: 100%;
+        height: 2px;
+        background: inherit;
+    }
+
+    /* Moves Line Down */
+    #main-nav__hamburger__line::after {
+        top: 10px;
+    }
+
+    /* Toggler Animation */
+    #main-nav__toggler:checked + #main-nav__hamburger > #main-nav__hamburger__line {
+        transform: rotate(135deg);
+    }
+
+    /* Turns Lines Into X */
+    #main-nav__toggler:checked + #main-nav__hamburger > #main-nav__hamburger__line:before,
+    #main-nav__toggler:checked + #main-nav__hamburger > #main-nav__hamburger__line:after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    /* Rotate On Hover When Checked */
+    #main-nav__toggler:checked:hover + #main-nav__hamburger > #main-nav__hamburger__line {
+        transform: rotate(225deg);
+    }
+
+    /* Show Menu */
+    #main-nav__toggler:checked ~ #main-nav__splash {
+        visibility: visible;
+    }
+
+    #main-nav__toggler:checked ~ #main-nav__splash > #main-nav__splash_1 {
+        transform: scale(1);
+        transition-duration: 0.75s;
+    }
+
+    #main-nav__toggler:checked ~ #main-nav__splash > #main-nav__splash_1 > #main-nav__splash_2 {
+        opacity: 1;
+        transition:  opacity 0.4s ease 0.4s;
+    }
+
+    #main-nav__splash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #main-nav__splash_1 {
+        border-radius: 50%;
+        width: 200vw;
+        height: 200vw;
+        padding: 1em;
+        display: flex;
+        flex: none;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        transition: all 0.4s ease;
+    }
+      
+    #main-nav__splash_2 {
+        text-align: center;
+        max-width: 90vw;
+        max-height: 100vh;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .main-nav__logo_desktop {
+        display: none;
+    }
+
+    /* --- sous menu --- 
+
+    .main-menu__sub {
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    .main-menu__sub > .main-menu__item {
+        margin: 0;
+    }
+
+    .main-menu__sub > .main-menu__item > .main-menu__link {
+        text-transform: initial;
+        font-size: 0.875em;
+    }
+
+    */
 }
    
 /*

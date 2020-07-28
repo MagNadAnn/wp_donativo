@@ -12,9 +12,7 @@ while ( have_posts() ) : the_post();
 
 <main>
 
-    <section class="fw-section fh-section">
-
-        <div class="triangle top left"><span></span></div>
+    <section class="fw-section">
 
         <div class="chimney">
             <article class="page-section__container single__content__wrap">

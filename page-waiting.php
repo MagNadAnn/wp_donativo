@@ -13,7 +13,6 @@ Template Name: page d'attente
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css">
   <title><?php bloginfo( 'name' ); ?> - <?php the_title(); ?></title>
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Quicksand:wght@700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
 <?php wp_footer(); ?>
