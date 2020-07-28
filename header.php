@@ -21,16 +21,21 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Quicksand:wght@700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
+
 <?php wp_footer(); ?>
-<div class="site">
-    <nav class="main-nav-wrap">
+<?php
+    $logged_in = is_user_logged_in() ? 'with-wp-bar' : false;
+?>
+
+<div class="site <?php echo($logged_in); ?>">
+    <nav class="main-nav <?php echo($logged_in); ?>">
         <a href="<?php bloginfo( 'url' ); ?>" class="main-nav__logo main-nav__logo_mobile"><span>Donativo</span></a>
         <input type="checkbox" id="main-nav__toggler">
         <div id="main-nav__hamburger" class="button-primary"><div id="main-nav__hamburger__line"></div></div>
         <div id="main-nav__splash">
-            <div id="main-nav__splash_1">
+            <div id="main-nav__splash_1" class="bg-d-mint_light">
                 <div id="main-nav__splash_2">
-                    <div class="main-nav__container">
+                    <div class="main-menu__wrap">
                         <a href="<?php bloginfo( 'url' ); ?>" class="main-nav__logo main-nav__logo_desktop"><span>Donativo</span></a>
                         <?php
 							if ( has_nav_menu( 'principal' ) ) : ?>
