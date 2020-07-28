@@ -205,6 +205,35 @@ SITE
 
 /*
 --------------------
+CHIMNEY
+--------------------
+*/
+
+.chimney {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.chimney.fluid { max-width: none; }
+
+
+@media (max-width: 1199px) and (min-width: 50em) {
+    .chimney { margin: 0 3em; }
+}
+
+@media (min-width: 50em) {
+    [class*="chimney"] { width: calc(100% - 6em); }
+    .chimney.small { max-width: 50em; margin-left: auto; margin-right: auto; }
+    .chimney.x-small { max-width: 37.5em; margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 799px) {
+    .chimney { width: 80%; }
+}
+
+/*
+--------------------
 SECTIONS
 --------------------
 */
@@ -228,48 +257,13 @@ SECTIONS
 
 .section__container {
     padding: 3em 0;
+    position: relative;
+    z-index: 3;
 }
 
 .section__container + .section__container {
-    padding-top: 0;
+    padding-top: 1.5em;
 }
-
-/*
---------------------
-CHIMNEY
---------------------
-*/
-
-.chimney {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.chimney.fluid { max-width: none; }
-.chimney.small { max-width: 50em; }
-.chimney.x-small { max-width: 37.5em; }
-
-@media (max-width: 1199px) and (min-width: 50em) {
-    .chimney { margin: 0 3em; }
-}
-
-
-@media (min-width: 50em) {
-
-    [class*="chimney"] { width: calc(100% - 6em); }
-    
-    .chimney.small { max-width: 50em; margin-left: auto; margin-right: auto; }
-
-    .chimney.x-small { max-width: 37.5em; margin-left: auto; margin-right: auto; }
-
-}
-
-@media (max-width: 799px) {
-    .chimney { width: 80%; }
-}
-
-
 
 /*
 --------------------
@@ -1268,20 +1262,96 @@ BLOCK V
 pour centrer des contenus verticalement
 */
 
-    [class*="block_v"] {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
+[class*="block_v"] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
-    .block_v-center {
-        justify-content: center;
-    }
+.block_v-center {
+    justify-content: center;
+}
 
-    .block_v-bottom {
-        justify-content: flex-end;
+.block_v-bottom {
+    justify-content: flex-end;
+}
+
+/*
+--------------------
+BLOCK POSTITION
+--------------------
+pour centrer des contenus verticalement
+*/
+
+.block_position.relative { position: relative; }
+
+/*
+==========================================================
+==========================================================
+PAGE
+==========================================================
+==========================================================
+*/
+
+/*
+--------------------
+IMAGE DE COUVERTURE
+--------------------
+*/
+
+.cover-img {
+    position: relative;
+}
+
+@media (min-width: 800px) {
+    .cover-img {
+        margin-bottom: -8em;
     }
+}
+
+/*
+--------------------
+TITRE
+--------------------
+*/
+
+.page-title {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 0.25em 1em 1em;
+    position: relative;
+    z-index: 3;
+}
+
+/*
+==========================================================
+==========================================================
+RESUMES
+==========================================================
+==========================================================
+*/
+
+.resumes {
+    flex-direction: column;
+}
+
+.resumes > .wp-block-column {
+    margin: 0 !important;
+}
+
+.resume {
+    display: flex;
+}
+
+.resume__tags {
+    position: absolute;
+}
+
+
+.resume__text {
+
+}
 
 /*
 ==========================================================
