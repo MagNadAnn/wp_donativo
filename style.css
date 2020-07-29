@@ -1,3 +1,7 @@
+#wpadminbar {
+    display: block !important;
+}
+
 /*
 ==========================================================
 ==========================================================
@@ -18,6 +22,7 @@ body {
     padding: 0;
     font-family: 'Fira Sans', sans-serif;
     color: #2d4b89;
+    line-height: 1.5em;
 }
 
 /*
@@ -257,8 +262,6 @@ SECTIONS
 
 .section__container {
     padding: 3em 0;
-    position: relative;
-    z-index: 3;
 }
 
 .section__container + .section__container {
@@ -520,7 +523,7 @@ MAIN-NAV
         width: 100%;
         max-width: 1200px;
         margin: auto;
-        padding: 0.5em 0;
+        padding: 0.25em 0;
     }
 
     .main-menu {
@@ -986,8 +989,12 @@ Featured slide
 */
 
 .featured-slide {
-    padding: 1em;
     box-sizing: border-box;
+    position: relative;
+}
+
+.featured-slide.with-frame {
+    padding: 1em;
 }
 
 .featured-slide__frame {
@@ -1016,7 +1023,8 @@ Featured slide
     }
 }
 
-.featured-slide > .chimney {
+.featured-slide__content {
+    position: relative;
     z-index: 3;
 }
 
@@ -1035,6 +1043,7 @@ Side drawings
         width: calc((100% - 37.5em) / 2);
         height: 100%;
         z-index: 1;
+        background-repeat: no-repeat;
     }
 
     .side-drawings.cover {
@@ -1044,19 +1053,28 @@ Side drawings
 
     .side-drawings.left {
         right: calc(((100% - 37.5em) / 2) + 37.5em);
-        background-position: top left;
     }
 
     .side-drawings.right {
         left: calc(((100% - 37.5em) / 2) + 37.5em);
-        background-position: bottom right;
     }
+
+    .side-drawings.left.top { background-position: top left; }
+    .side-drawings.right.top { background-position: top right; }
+    .side-drawings.left.center { background-position: center left; }
+    .side-drawings.right.center { background-position: center right; }
+    .side-drawings.left.bottom { background-position: bottom left; }
+    .side-drawings.right.bottom { background-position: bottom right; }
 
     .side-drawings.top { top: 0; }
     .side-drawings.bottom { bottom: 0; }
 
     .side-drawings.standard.left { background-image: url(img/deco_fh_gauche_01.png); }
     .side-drawings.standard.right { background-image: url(img/deco_fh_droite_01.png); }
+    .side-drawings.dev-loc.left.center { background-image: url(img/deco_experte_01_gauche.png); }
+    .side-drawings.dev-loc.right.top { background-image: url(img/deco_jessica_01_droite.png); }
+    .side-drawings.dev-loc.right.bottom { background-image: url(img/deco_elue_01_droite.png); }
+    .side-drawings.missions.left.top { background-image: url(img/deco_samia_01_gauche.png); }
 
 }
 
@@ -1364,6 +1382,16 @@ PAGE
 
 /*
 --------------------
+PAGE WRAP
+--------------------
+*/
+
+.single__content__wrap {
+    padding: 1px 0 4em;
+}
+
+/*
+--------------------
 IMAGE DE COUVERTURE
 --------------------
 */
@@ -1389,7 +1417,8 @@ TITRE
     padding-left: 2em;
     padding-right: 2em;
     background-color: #ffffff;
-
+    position: relative;
+    z-index: 3;
 }
 
 /*
@@ -1398,6 +1427,12 @@ TITRE
 ACCROCHES
 ==========================================================
 ==========================================================
+*/
+
+/*
+--------------------
+PAGES
+--------------------
 */
 
 .accroche__title {
@@ -1409,6 +1444,65 @@ ACCROCHES
 .accroche__p {
     font-size: 0.875em;
     line-height: 1.25em;
+}
+
+/*
+--------------------
+POSTS
+--------------------
+*/
+
+.accroches-post {
+    padding: 3em 0 !important;
+}
+
+.accroches-post > li {
+    margin: 0.5em 1em !important;
+    position: relative;
+    width: calc((100% / 3 * 1) - 2em) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ----- image ----- */
+
+.accroches-post .wp-block-latest-posts__featured-image {
+    width: 100%;
+    margin: 0.75rem 0;
+}
+
+.accroches-post .wp-block-latest-posts__featured-image > img {
+    width: 100%;
+    order: 0;
+}
+
+/* ----- date ----- */
+
+.accroches-post .wp-block-latest-posts__post-date {
+    order: 1;
+    color: #2d4b89;
+    font-size: 1em;
+    margin: 0.75rem 0;
+}
+
+/* ----- titre ----- */
+
+.accroches-post a {
+    order: 2;
+    padding: 0.2em;
+    text-decoration: none;
+    margin: 0.5rem -0.2em;
+    font-size: 1.5em;
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ----- extrait ----- */
+
+.accroches-post .wp-block-latest-posts__post-excerpt {
+    order: 3;
+    line-height: ;
 }
 
 /*
@@ -1510,8 +1604,14 @@ TEXTE
 }
 
 @media (min-width: 800px) {
+    .resume:nth-child(odd) .resume__text {
+        text-align: left;
+        margin-right: 5em;
+    }
+
     .resume:nth-child(even) .resume__text {
         text-align: right;
+        margin-left: 5em;
     }
 }
 
@@ -1565,16 +1665,32 @@ QUOTE
     transform: rotate(180deg);
 }
 
+.quote > p {
+    line-height: 1.25em;
+}
+
 /*
 ==========================================================
 ==========================================================
-CTA CONTACT
+BANNIERES
 ==========================================================
 ==========================================================
 */
 
-.has-pale-pink-background-color {
+.wp-block-cover {
+    min-height: initial;
+    padding: 3em 0;
+}
+
+/*
+--------------------
+CTA-CONTACT
+--------------------
+*/
+
+.cta-contact.has-pale-pink-background-color {
     background: linear-gradient(90deg, #fa5b7d 50%, #e3415c 50%);
+    background-color: transparent !important;
 }
 
 /*
@@ -1591,7 +1707,8 @@ SIMPLE
 --------------------
 */
 
-.button.simple {
+.button.simple,
+.button.wp-simple > a {
     text-decoration: none;
     padding: 0.75em 1.25em;
     font-family: 'Quicksand', sans-serif;
@@ -1633,6 +1750,26 @@ THEMES
 --------------------
 */
 
+/* ----- PRIMARY ----- */
+
+.button.primary,
+.button.wp-primary > a {
+    color: #ffffff;
+    background-color: #4dd1a9;
+}
+
+.button.primary:hover,
+.button.primary:focus,
+.button.wp-primary:hover > a,
+.button.wp-primary:focus > a {
+    background-color: #38b08c;
+}
+
+.button.primary:active,
+.button.wp-primary:active > a {
+    background-color: #13a588;
+}
+
 /* ----- SECUNDARY ----- */
 
 .button.secundary {
@@ -1649,7 +1786,7 @@ THEMES
     color: #38b08c;
 }
 
-.button.secundary:focus {
+.button.secundary:active {
     border-color: #13a588;
     color: #13a588;
 }
