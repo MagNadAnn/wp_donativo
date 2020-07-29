@@ -923,6 +923,37 @@ SIGNATURE
 }
 
 /*
+--------------------
+sur le bandeau rose
+--------------------
+*/
+
+.has-pale-pink-background-color .signature {
+    font-size: 1.5em;
+}
+
+.has-pale-pink-background-color .signature a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.has-pale-pink-background-color .signature__nom {
+    font-size: 1.5em;
+}
+
+.has-pale-pink-background-color .signature a:hover,
+.has-pale-pink-background-color .signature a:focus,
+.has-pale-pink-background-color .signature a:active {
+    text-decoration: underline;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.has-pale-pink-background-color .signature .wp-block-image {
+    margin: 1em 0;
+}
+
+/*
 ==========================================================
 ==========================================================
 DECORATIONS
@@ -946,6 +977,7 @@ DECORATIONS
 .bg-d-yellow_dark { background-color: #eda600; }
 
 .bg-l-cream { background-color: #f6f7f1; }
+.bg-l-white { background-color: #ffffff; }
 
 /*
 --------------------
@@ -1279,12 +1311,48 @@ pour centrer des contenus verticalement
 
 /*
 --------------------
+BLOCK PADDING
+--------------------
+*/
+
+.block_padding.left {
+    padding-left: 2em;
+}
+
+.block_padding.right {
+    padding-right: 2em;
+}
+
+/*
+--------------------
 BLOCK POSTITION
 --------------------
-pour centrer des contenus verticalement
 */
 
 .block_position.relative { position: relative; }
+
+/*
+==========================================================
+==========================================================
+TAGS
+==========================================================
+==========================================================
+*/
+
+.tags {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: -1em;
+}
+
+.tags > li {
+    padding: 0.125em 0.25em;
+    color: #fff;
+    font-size: 1.125em;
+    margin: 0.385rem;
+}
 
 /*
 ==========================================================
@@ -1316,12 +1384,31 @@ TITRE
 --------------------
 */
 
-.page-title {
-    text-align: center;
+.page-intro {
+    padding-top: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
     background-color: #ffffff;
-    padding: 0.25em 1em 1em;
-    position: relative;
-    z-index: 3;
+
+}
+
+/*
+==========================================================
+==========================================================
+ACCROCHES
+==========================================================
+==========================================================
+*/
+
+.accroche__title {
+    color: #2d4b89;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.accroche__p {
+    font-size: 0.875em;
+    line-height: 1.25em;
 }
 
 /*
@@ -1332,6 +1419,12 @@ RESUMES
 ==========================================================
 */
 
+/*
+--------------------
+LISTE
+--------------------
+*/
+
 .resumes {
     flex-direction: column;
 }
@@ -1340,17 +1433,148 @@ RESUMES
     margin: 0 !important;
 }
 
+/*
+--------------------
+ITEM
+--------------------
+*/
+
 .resume {
     display: flex;
+    position: relative;
 }
 
-.resume__tags {
-    position: absolute;
+@media (min-width: 800px) {
+    .resume {
+        align-items: center;
+        padding: 1em 0;
+    }
+
+    .resume:nth-child(even) {
+        flex-direction: row-reverse;
+    }
 }
 
+@media (max-width: 799px) {
+    .resume {
+        flex-wrap: wrap;
+    }
+}
+
+/*
+--------------------
+IMAGE
+--------------------
+*/
+
+.resume__img {
+    min-width: 50%;
+    margin: 0;
+}
+
+/*
+--------------------
+TAGS
+--------------------
+*/
+
+@media (min-width: 800px) {
+    .resume__tags {
+        position: absolute;
+        align-items: flex-end;
+        right: 50%;
+        top: 3em;
+    }
+
+    .resume:nth-child(even) .resume__tags {
+        align-items: flex-start;
+        left: 50%;
+        right: initial;
+    }
+}
+
+
+
+.resume__tags > li {
+    background-color: #fa5b7d;
+}
+
+/*
+--------------------
+TEXTE
+--------------------
+*/
 
 .resume__text {
+    padding: 0 2em;
+}
 
+@media (min-width: 800px) {
+    .resume:nth-child(even) .resume__text {
+        text-align: right;
+    }
+}
+
+.resume__titre {
+    margin-bottom: 0.25em;
+    color: #f7b90f;
+}
+
+.resume__sous-titre {
+    margin: 0.25em 0 0.5em -0.5em;
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
+    background-color: #f7b90f;
+    padding: 0.125em 0.5em 0.25em;
+    display: inline-block;
+}
+
+/*
+==========================================================
+==========================================================
+QUOTE
+==========================================================
+==========================================================
+*/
+
+.quote {
+    position: relative;
+    padding: 0 7em;
+    box-sizing: border-box;
+    max-width: 50%;
+}
+
+.quote:before,
+.quote:after {
+    position: absolute;
+    content: '«';
+    font-size: 10em;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1em;
+}
+
+.quote:before {
+    content: '«';
+    bottom: calc(100% - 0.5em);
+    right: calc(100% - 0.2em);
+}
+
+.quote:after {
+    top: calc(100% - 0.5em);
+    left: calc(100% - 0.2em);
+    transform: rotate(180deg);
+}
+
+/*
+==========================================================
+==========================================================
+CTA CONTACT
+==========================================================
+==========================================================
+*/
+
+.has-pale-pink-background-color {
+    background: linear-gradient(90deg, #fa5b7d 50%, #e3415c 50%);
 }
 
 /*
@@ -1361,6 +1585,12 @@ BUTTON
 ==========================================================
 */
 
+/*
+--------------------
+SIMPLE
+--------------------
+*/
+
 .button.simple {
     text-decoration: none;
     padding: 0.75em 1.25em;
@@ -1368,6 +1598,33 @@ BUTTON
     text-transform: uppercase;
     display: inline-block;
     border-radius: 0.2em;
+}
+
+/*
+--------------------
+DISCREET
+--------------------
+*/
+
+.button.discreet > .wp-block-button__link {
+    background-color: transparent;
+    color: #4dd1a9;
+    font-size: 1em;
+    text-transform: uppercase;
+    padding: 0.5em 0;
+    border-bottom: 2px solid transparent;
+    border-radius: initial;
+}
+
+.button.discreet > .wp-block-button__link:hover,
+.button.discreet > .wp-block-button__link:focus {
+    color: #38b08c;
+    border-bottom-color: #38b08c;
+}
+
+.button.discreet > .wp-block-button__link:focus {
+    color: #eda600;
+    border-bottom-color: #eda600;
 }
 
 /*
@@ -1433,7 +1690,7 @@ FONT SIZES
 
     .has-large-font-size { font-size: 1.5em; }
 
-    .has-huge-font-size { font-size: 1.8em; }
+    .has-huge-font-size { font-size: 2em; }
 
 }
 
