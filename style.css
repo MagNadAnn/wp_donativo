@@ -414,11 +414,11 @@ ESPACEMENTS
 --------------------
 */
 
-*:not(.section__container):not(.column):not(li):not(.vignette__image):first-child {
+*:not(.section__container):not(.column):not(li):not(.vignette__image):not(figure):first-child {
     margin-top: 0;
 }
 
-*:not(.section__container):not(.column):not(li):not(.vignette__image):last-child {
+*:not(.section__container):not(.column):not(li):not(.vignette__image):not(figure):last-child {
     margin-bottom: 0;
 }
 
@@ -1032,6 +1032,31 @@ Side drawings
 --------------------
 */
 
+@media (min-width:1700px) {
+
+    .side-drawings.small.left {
+        right: calc(((100% - 37.5em) / 2) + 37.5em);
+    }
+
+    .side-drawings.small.right {
+        left: calc(((100% - 37.5em) / 2) + 37.5em);
+    }
+}
+
+@media (min-width:1200px) and (max-width:1699px) {
+    .side-drawings.small {
+        background-size: contain;
+    }
+
+    .side-drawings.small.right {
+        left: 80% !important;
+    }
+
+    .side-drawings.small.left {
+        right: 80% !important;
+    }
+}
+
 @media (min-width:1024px) and (max-width:1199px) {
     .side-drawings.small {
         background-size: contain;
@@ -1048,9 +1073,9 @@ Side drawings
 
 @media (min-width:1024px) {
 
-    .side-drawings {
-        position: absolute;
+    .side-drawings.small {
         width: calc((100% - 37.5em) / 2);
+        position: absolute;
         height: 100%;
         z-index: 1;
         background-repeat: no-repeat;
@@ -1061,18 +1086,14 @@ Side drawings
         background-repeat: no-repeat;
     }
 
-    .side-drawings.left {
-        right: calc(((100% - 37.5em) / 2) + 37.5em);
-    }
-
-    .side-drawings.right {
-        left: calc(((100% - 37.5em) / 2) + 37.5em);
-    }
-
     .side-drawings.left.top { background-position: top left; }
+    .side-drawings.right.top_1-4 { background-position: top 25% right; }
+    .side-drawings.left.top_1-4 { background-position: top 25% left; }
     .side-drawings.right.top { background-position: top right; }
     .side-drawings.left.center { background-position: center left; }
     .side-drawings.right.center { background-position: center right; }
+    .side-drawings.right.top_3-4 { background-position: top 75% right; }
+    .side-drawings.left.top_3-4 { background-position: top 75% left; }
     .side-drawings.left.bottom { background-position: bottom left; }
     .side-drawings.right.bottom { background-position: bottom right; }
 
@@ -1081,10 +1102,18 @@ Side drawings
 
     .side-drawings.standard.left { background-image: url(img/deco_fh_gauche_01.png); }
     .side-drawings.standard.right { background-image: url(img/deco_fh_droite_01.png); }
+
     .side-drawings.dev-loc.left.center { background-image: url(img/deco_experte_01_gauche.png); }
     .side-drawings.dev-loc.right.top { background-image: url(img/deco_jessica_01_droite.png); }
     .side-drawings.dev-loc.right.bottom { background-image: url(img/deco_elue_01_droite.png); }
+    
     .side-drawings.missions.left.top { background-image: url(img/deco_samia_01_gauche.png); }
+    
+    .side-drawings.steps.left.top { background-image: url(img/deco_tache_01_gauche.png); }
+    .side-drawings.steps.right.top_1-4 { background-image: url(img/deco_tache_02_droite.png); }
+    .side-drawings.steps.right.center { background-image: url(img/deco_laura_01_droite.png); }
+    .side-drawings.steps.left.top_3-4 { background-image: url(img/deco_clamecy_01_gauche.png); }
+    .side-drawings.steps.right.bottom { background-image: url(img/deco_carole_01_droite.png); }
 
 }
 
@@ -1218,9 +1247,14 @@ TEXT COLOR
 
 .text_charcoal { color: #33383d !important; }
 .text_mouse { color: #999a9f !important; }
-.text_cream { color: #eae6cf !important; }
+.text_cream { color: #f6f7f1 !important; }
 .text_pearl { color: rgba(0,0,0,0.1) !important; }
 .text_white { color: #ffffff !important; }
+
+.text_marine { color: #21386c; }
+.text_mint { color: #4dd1a9; }
+.text_pink { color: #fa5b7d; }
+.text_yellow { color: #f7b90f; }
 
 /*
 --------------------
@@ -1343,12 +1377,24 @@ BLOCK PADDING
 --------------------
 */
 
+.block_padding.all {
+    padding: 2em;
+}
+
 .block_padding.left {
     padding-left: 2em;
 }
 
 .block_padding.right {
     padding-right: 2em;
+}
+
+.block_padding.top {
+    padding-top: 2em;
+}
+
+.block_padding.bottom {
+    padding-bottom: 2em;
 }
 
 /*
@@ -1375,11 +1421,15 @@ TAGS
     margin: -1em;
 }
 
-.tags > li {
-    padding: 0.125em 0.25em;
+.tags > li,
+[rel*="tag"] {
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.0625em 0.5em;
+    font-size: 1em;
+    text-decoration: none;
     color: #fff;
-    font-size: 1.125em;
-    margin: 0.385rem;
+    background-color: #4dd1a9;
 }
 
 /*
@@ -1423,12 +1473,98 @@ TITRE
 */
 
 .page-intro {
-    padding-top: 0.5em;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-top: 3em;
+    padding-left: 3em;
+    padding-right: 3em;
     background-color: #ffffff;
     position: relative;
     z-index: 3;
+}
+
+/*
+==========================================================
+==========================================================
+TIMELINE
+==========================================================
+==========================================================
+*/
+
+.timeline {
+    position: relative;
+    display: flex;
+    list-style: decimal inside;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0.25em 0 1em;
+}
+
+.timeline:before,
+.timeline:after {
+    content: "";
+    position: absolute;
+    top: 0.385em;
+    height: 0;
+    border-top-color: #f6f7f1;
+    border-top-width: 0.5em;
+}
+
+.timeline:before {
+    width: 110%;
+    left: -5%;
+    border-top-style: dotted;
+    z-index: -1;
+}
+
+.timeline:after {
+    width: 100%;
+    left: 0;
+    border-top-style: solid;
+    z-index: -1;
+}
+
+.timeline > li {
+    position: relative;
+    max-width: 9em;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    padding: 1em 0.25em 0;
+}
+
+.timeline > li > em {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    color: #2d4b89;
+}
+
+.timeline > li:nth-child(3n) {
+    color: #38b08c;
+}
+
+.timeline > li:nth-child(3n+1) {
+    color: #e3415c;
+}
+
+.timeline > li:nth-child(3n+2) {
+    color: #f7b90f;
+}
+
+.timeline > li:before {
+    content: "•";
+    font-size: 4em;
+    position: absolute;
+    top: -1rem;
+    left: calc(50% - 1rem);
+}
+
+.timeline > li:after {
+    content: "*";
+    font-size: 2em;
+    position: absolute;
+    top: -0.55rem;
+    left: calc(50% - 0.45rem);
+    color: #ffffff;
 }
 
 /*
@@ -1744,6 +1880,75 @@ TEXTE
 /*
 ==========================================================
 ==========================================================
+STEPS
+==========================================================
+==========================================================
+*/
+
+@media (min-width: 800px) {
+
+    .step {
+        display: flex;
+        margin: 0;
+    }
+
+    .step:nth-child(odd) {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .step:nth-child(even) {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+
+    .step > .wp-block-column {
+        margin: 0 !important;
+        padding: 2em;
+    }
+}
+
+/*
+==========================================================
+==========================================================
+QUOTE
+==========================================================
+==========================================================
+*/
+
+.highlight {
+    padding: 1em 1.5em;
+    position: relative;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.highlight:before,
+.highlight:after {
+    content: "";
+    border: solid #ffcb1f 0.25em;
+    position: absolute;
+    width: 60%;
+    height: 2em;
+}
+
+.highlight:before {
+    border-bottom: none;
+    border-right: none;
+    top: 0;
+    left: 0;
+}
+
+.highlight:after {
+    border-top: none;
+    border-left: none;
+    bottom: 0;
+    right: 0;
+}
+
+/*
+==========================================================
+==========================================================
 QUOTE
 ==========================================================
 ==========================================================
@@ -1995,9 +2200,50 @@ FIGURES
 --------------------
 */
 
-.wp-block-image > figure > img {
+
+
+figure {
+    position: relative;
+    display: block !important;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.wp-block-columns figure:not(.alignleft):not(.alignright):not(.aligncenter) {
+    width: 100%;
+}
+
+.wp-block-columns figure.alignleft,
+.wp-block-columns figure.alignright {
+    width: 80%;
+}
+
+.wp-block-columns figure {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+figure > img {
     height: auto;
 }
+
+.wp-block-columns figure.aligncenter > img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure > figcaption {
+    display: block !important;
+    box-sizing: border-box;
+    background-color: #fa5b7d;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    width: 80%;
+    margin: -1em 10% 0 !important;
+    position: relative;
+}
+
+
 
 /*
 --------------------

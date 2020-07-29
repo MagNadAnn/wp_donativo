@@ -1,32 +1,21 @@
-<?php
-/**
- * The template for displaying all single posts and attachments
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 
 <?php
 // Start the loop.
 while ( have_posts() ) : the_post();
 ?>
 
-<main>
+<main class="main-content">
+    <article class="fw-section single__content__wrap">
 
-    <section class="fw-section">
-
-        <div class="chimney">
-            <article class="page-section__container single__content__wrap">
-
-                <header class="page-header">
-                    <h1><?php the_title(); ?></h1>
-                </header>
-                
-                <div class="single__content"><?php the_content(); ?></div>
-
-            </article>
+        <div class="cover-img">
+            <?php the_post_thumbnail("full"); ?>
+            <div class="featured-slide__frame"></div>
         </div>
 
-    </section>
+        <?php the_content(); ?>
+
+    </article>
 
 </main>
 
