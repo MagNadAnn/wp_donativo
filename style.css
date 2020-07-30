@@ -1002,7 +1002,6 @@ Featured slide
     box-sizing: border-box;
     border: #4dd1a9 solid 3px;
     border-radius: 2px;
-    z-index: 2;
 }
 
 @media (min-width: 700px) {
@@ -1014,18 +1013,31 @@ Featured slide
     }
 }
 
+@media (min-width: 800px) {
+    .featured-slide__frame {
+        z-index: 2;
+    }
+}
+
 @media (max-width: 699px) {
     .featured-slide__frame {
         width: calc(100% - 2em);
         height: calc(100% - 2em);
         top: 1em;
         left: 1em;
+        z-index: 1;
     }
 }
 
 .featured-slide__content {
     position: relative;
     z-index: 3;
+}
+
+@media (min-width: 700px) {
+    .featured-slide.with-frame .featured-slide__content.section__container {
+        padding: 8em 0;
+    }
 }
 
 
@@ -1035,59 +1047,18 @@ Side drawings
 --------------------
 */
 
-@media (min-width:1700px) {
-
-    .side-drawings.small.left {
-        right: calc(((100% - 37.5em) / 2) + 37.5em);
-    }
-
-    .side-drawings.small.right {
-        left: calc(((100% - 37.5em) / 2) + 37.5em);
-    }
+.side-drawings {
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
-@media (min-width:1200px) and (max-width:1699px) {
-    .side-drawings.small {
-        background-size: contain;
-    }
-
-    .side-drawings.small.right {
-        left: 80% !important;
-    }
-
-    .side-drawings.small.left {
-        right: 80% !important;
-    }
-}
-
-@media (min-width:1024px) and (max-width:1199px) {
-    .side-drawings.small {
-        background-size: contain;
-    }
-
-    .side-drawings.small.right {
-        left: calc(100% - 12em) !important;
-    }
-
-    .side-drawings.small.left {
-        right: calc(100% - 12em) !important;
-    }
-}
-
-@media (min-width:1024px) {
-
-    .side-drawings.small {
-        width: calc((100% - 37.5em) / 2);
-        position: absolute;
-        height: 100%;
-        z-index: 1;
-        background-repeat: no-repeat;
-    }
-
-    .side-drawings.cover {
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+.side-drawings.top { top: 0; }
+    .side-drawings.bottom { bottom: 0; }
+    .side-drawings.left { left: 0; }
+    .side-drawings.right { right: 0; }
 
     .side-drawings.left.top { background-position: top left; }
     .side-drawings.right.top_1-4 { background-position: top 25% right; }
@@ -1100,11 +1071,8 @@ Side drawings
     .side-drawings.left.bottom { background-position: bottom left; }
     .side-drawings.right.bottom { background-position: bottom right; }
 
-    .side-drawings.top { top: 0; }
-    .side-drawings.bottom { bottom: 0; }
-
-    .side-drawings.standard.left { background-image: url(img/deco_fh_gauche_01.png); }
-    .side-drawings.standard.right { background-image: url(img/deco_fh_droite_01.png); }
+    .side-drawings.standard.left.top { background-image: url(img/deco_standard_01_gauche.png); }
+    .side-drawings.standard.right.bottom { background-image: url(img/deco_standard_01_droite.png); }
 
     .side-drawings.dev-loc.left.center { background-image: url(img/deco_experte_01_gauche.png); }
     .side-drawings.dev-loc.right.top { background-image: url(img/deco_jessica_01_droite.png); }
@@ -1118,6 +1086,54 @@ Side drawings
     .side-drawings.steps.left.top_3-4 { background-image: url(img/deco_clamecy_01_gauche.png); }
     .side-drawings.steps.right.bottom { background-image: url(img/deco_carole_01_droite.png); }
 
+    .side-drawings.definitions.right.bottom.cover { background-image: url(img/deco_definition_01_droite.png); }
+    .side-drawings.definitions.right.bottom.small { background-image: url(img/deco_tache_04_droite.png); bottom: -10em; }
+    
+    .side-drawings.art.left.center { background-image: url(img/deco_experte_02_gauche.png); }
+
+    .side-drawings.secrets.right.top { background-image: url(img/deco_nicolas_01_droite.png); }
+    .side-drawings.secrets.left.bottom { background-image: url(img/deco_HLM-03_01_gauche.png); }
+    
+    .side-drawings.expertises.right.bottom { background-image: url(img/deco_clamecy_02_droite.png); }
+
+@media (min-width:1024px) {
+    .side-drawings {
+        width: calc((100% - 37.5em) / 2);
+    }
+}
+
+
+@media (min-width:1200px) and (max-width:1699px) {
+    .side-drawings.small {
+        width: calc((100% - 50em) / 2);
+    }
+}
+
+@media (min-width:1024px) and (max-width:1199px) {
+    .side-drawings.small {
+        width: calc((100% - 45em) / 2);
+    }
+}
+@media (min-width:800px) {
+    .side-drawings {
+        mix-blend-mode: darken;
+    }
+}
+
+@media (min-width:700px) and (max-width:1023px) {
+    .side-drawings.cover {
+        width: 30%;
+    }
+
+    .side-drawings {
+        width: 9em
+    }
+}
+
+@media (max-width:699px) {
+    .side-drawings {
+        width: 6em
+    }
 }
 
 /*
@@ -1172,6 +1188,54 @@ Triangle
     
 }
 
+/*
+==========================================================
+==========================================================
+PORTRAIT
+==========================================================
+==========================================================
+*/
+
+
+.portraits {
+    justify-content: center;
+}
+
+.portrait {
+    min-width: 9em;
+    flex-grow: initial;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+.portrait > .wp-block-media-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.portrait > .wp-block-media-text > figure {
+}
+
+/*
+==========================================================
+==========================================================
+DEFINITION
+==========================================================
+==========================================================
+*/
+
+p.definition {
+    line-height: 1.25em;
+    margin: 1.5em 0;
+}
+
+.terme > span {
+    background-color: #ffcb1f;
+    color: #ffffff;
+    padding: 0 0.25em;
+    text-transform: uppercase;
+    font-size: 1.25em;
+}
 
 /*
 ==========================================================
@@ -1316,6 +1380,12 @@ SOLIDARITY
     display: inline-block;
 }
 
+.solidarity:not(:first-child):before {
+    content: " ";
+    display: inline-block;
+    margin-left: 0.25em;
+}
+
 /*
 --------------------
 LINK-ALT
@@ -1376,9 +1446,29 @@ pour centrer des contenus verticalement
 
 /*
 --------------------
+BLOCK MARGIN
+--------------------
+*/
+
+.block_margin.no-margin {
+    margin: 0 !important;
+}
+
+.block_margin.no-margin.top {
+    margin-top: 0 !important;
+}
+
+.block_margin.no-margin.bottom {
+    margin-bottom: 0 !important;
+}
+
+
+/*
+--------------------
 BLOCK PADDING
 --------------------
 */
+
 
 .block_padding.all {
     padding: 2rem;
@@ -1402,11 +1492,19 @@ BLOCK PADDING
 
 /*
 --------------------
-BLOCK POSTITION
+BLOCK POSITION
 --------------------
 */
 
 .block_position.relative { position: relative; }
+
+/*
+--------------------
+BLOCK OVERFLOW
+--------------------
+*/
+
+.block_overflow.y-hidden { overflow-y: hidden; }
 
 /*
 ==========================================================
@@ -1686,15 +1784,39 @@ PAGES
 --------------------
 */
 
+.accroches-page:not(.section__container) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.accroche-page {
+    padding: 1em 0;
+}
+
+.accroche__img {
+    margin-bottom: 0;
+}
+
+.accroche__img > figure {
+    max-width: 6.25em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .accroche__title {
     color: #2d4b89;
     font-size: 1.5em;
     text-transform: uppercase;
+    margin-top: 0;
 }
 
 .accroche__p {
     font-size: 0.875em;
     line-height: 1.25em;
+}
+
+.accroche__buttons.wp-block-buttons {
+    margin-top: 0;
 }
 
 /*
@@ -2147,6 +2269,57 @@ BANNIERES
 
 /*
 --------------------
+CHANGE AND FRICTION
+--------------------
+*/
+
+.change-and-friction {
+    padding: 0;
+}
+
+.change-and-friction > .wp-block-cover__inner-container {
+    width: initial;
+}
+
+.change-and-friction .wp-block-column {
+    margin: 0 !important;
+}
+
+.change-and-friction .wp-block-column:nth-child(1) { max-width: 20%; min-width: 20%; }
+.change-and-friction .wp-block-column:nth-child(2) { max-width: 60%; min-width: 60%; }
+.change-and-friction .wp-block-column:nth-child(3) { max-width: 20%; min-width: 20%; }
+
+.change-and-friction__img {
+    background-image: url("img/illustration-14.jpg");
+}
+
+.change-and-friction .quote {
+    padding: 4rem !important;
+    background-size: cover;
+}
+
+.change-and-friction .quote:before { bottom: calc(100% - 1em); }
+.change-and-friction .quote:after { top: calc(100% - 1em); }
+
+.change-and-friction .quote p {
+    line-height: 1.25em;
+}
+
+@media (min-width: 800px) {
+    .change-and-friction.has-pale-pink-background-color {
+        background: linear-gradient(90deg, #e3415c 20%, #fa5b7d 20%, #fa5b7d 80%, #e3415c 80%);
+        background-color: transparent !important;
+    }
+}
+
+@media (max-width: 799px) {
+    .change-and-friction.has-pale-pink-background-color {
+        background-color: #fa5b7d !important;
+    }
+}
+
+/*
+--------------------
 CTA-CONTACT
 --------------------
 */
@@ -2214,7 +2387,7 @@ PHOTO
 */
 
 .photo.wp-block-image {
-    margin: 3rem 0 !important;
+    margin: 2rem 0;
 }
 
 /*
@@ -2227,7 +2400,7 @@ FIGURE
 figure.photo {
     position: relative;
     display: block !important;
-    width: 80%;
+    width: 70%;
     float: none !important;
 }
 
@@ -2236,7 +2409,7 @@ figure.photo {
 }
 
 .photo > figure.alignright {
-    margin-left: 20% !important;
+    margin-left: 30% !important;
 }
 
 .wp-block-columns figure.photo,
@@ -2302,8 +2475,8 @@ SIMPLE
 DISCREET
 --------------------
 */
-
-.button.discreet > .wp-block-button__link {
+.button.discreet,
+.button.wp-discreet > .wp-block-button__link {
     background-color: transparent;
     color: #4dd1a9;
     font-size: 1em;
@@ -2313,13 +2486,16 @@ DISCREET
     border-radius: initial;
 }
 
-.button.discreet > .wp-block-button__link:hover,
-.button.discreet > .wp-block-button__link:focus {
+.button.discreet:hover,
+.button.discreet:focus,
+.button.wp-discreet > .wp-block-button__link:hover,
+.button.wp-discreet > .wp-block-button__link:focus {
     color: #38b08c;
     border-bottom-color: #38b08c;
 }
 
-.button.discreet > .wp-block-button__link:focus {
+.button.discreet:active,
+.button.wp-discreet > .wp-block-button__link:active {
     color: #eda600;
     border-bottom-color: #eda600;
 }
@@ -2385,6 +2561,30 @@ FONT SIZES
 --------------------
 */
 
+figure > a {
+    display: block;
+    background-color: transparent !important;
+    opacity: 0.8;
+}
+
+figure > a:hover,
+figure > a:focus {
+    opacity: 0.9;
+}
+
+figure > a:active {
+    opacity: 1;
+}
+
+.block_margin.no-margin.top > figure { margin-top: 0 !important; }
+.block_margin.no-margin.bottom > figure { margin-bottom: 0 !important; }
+
+/*
+--------------------
+FONT SIZES
+--------------------
+*/
+
 .has-medium-font-size,
 .has-large-font-size,
 .has-huge-font-size {
@@ -2409,4 +2609,14 @@ FONT SIZES
 
     .has-huge-font-size { font-size: 1.38em; }
 
+}
+
+/*
+--------------------
+BUTTONS
+--------------------
+*/
+
+.wp-block-buttons {
+    margin: 2em 0;
 }

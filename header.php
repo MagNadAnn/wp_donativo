@@ -23,10 +23,7 @@
 <body>
 
 <?php wp_footer(); ?>
-<?php
-    $logged_in = is_user_logged_in() ? 'with-wp-bar' : false;
-?>
-
+<?php $logged_in = is_user_logged_in() ? 'with-wp-bar' : false; ?>
 <div class="site <?php echo($logged_in); ?>">
     <nav class="main-nav <?php echo($logged_in); ?>">
         <a href="<?php bloginfo( 'url' ); ?>" class="main-nav__logo main-nav__logo_mobile"><span>Donativo</span></a>

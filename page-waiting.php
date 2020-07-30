@@ -16,7 +16,8 @@ Template Name: page d'attente
 </head>
 <body>
 <?php wp_footer(); ?>
-<div class="site">
+<?php $logged_in = is_user_logged_in() ? 'with-wp-bar' : false; ?>
+<div class="site <?php echo($logged_in); ?>">
 
 <?php
 // Start the loop.
@@ -25,15 +26,15 @@ while ( have_posts() ) : the_post();
 
 <main>
 
-    <section class="fw-section fh-section featured-slide">
+    <section class="fw-section fh-section featured-slide with-frame block_overflow y-hidden">
 
         <div class="triangle top left"><span></span></div>
         <div class="triangle bottom right"><span></span></div>
         <div class="side-drawings standard top left cover"></div>
-        <div class="side-drawings standard top right cover"></div>
+        <div class="side-drawings standard bottom right cover"></div>
         <div class="featured-slide__frame"></div>
 
-        <div class="block_v-center chimney x-small">
+        <div class="block_v-center chimney x-small featured-slide__content">
             <article class="section__container single__content__wrap">
                 
                 <div class="single__content"><?php the_content(); ?></div>
@@ -51,4 +52,6 @@ while ( have_posts() ) : the_post();
 endwhile;
 ?>
 
-<?php get_footer(); ?>
+</div>
+</body>
+</html>
