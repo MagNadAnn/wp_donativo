@@ -203,6 +203,7 @@ SITE
     width: 100%;
     top: 0;
     left: 0;
+    overflow-x: hidden;
 }
 
 @media (min-width: 800px) {
@@ -1493,48 +1494,123 @@ TIMELINE
     position: relative;
     display: flex;
     list-style: decimal inside;
-    justify-content: center;
     align-items: flex-start;
-    padding: 0.25em 0 1em;
 }
+
+@media (min-width: 800px) {
+    .timeline {
+        justify-content: center;
+        padding: 0.25em 0 1em;
+    }
+}
+
+@media (max-width: 799px) {
+    .timeline {
+        flex-direction: column;
+        padding: 0;
+        margin: 2em 0 !important;
+    }
+}
+
+/*
+--------------------
+LIGNE
+--------------------
+*/
+
 
 .timeline:before,
 .timeline:after {
     content: "";
     position: absolute;
-    top: 0.385em;
-    height: 0;
-    border-top-color: #f6f7f1;
-    border-top-width: 0.5em;
 }
 
 .timeline:before {
-    width: 110%;
-    left: -5%;
-    border-top-style: dotted;
     z-index: -1;
 }
 
 .timeline:after {
-    width: 100%;
-    left: 0;
-    border-top-style: solid;
     z-index: -1;
 }
 
+@media (min-width: 800px) {
+    .timeline:before,
+    .timeline:after {
+        top: 0.385em;
+        height: 0;
+        border-top-color: #f6f7f1;
+        border-top-width: 0.5em;
+    }
+
+    .timeline:before {
+        border-top-style: dotted;
+        width: 110%;
+        left: -5%;
+    }
+
+    .timeline:after {
+        border-top-style: solid;
+        width: 100%;
+        left: 0;
+    }
+}
+
+@media (max-width: 799px) {
+    .timeline:before,
+    .timeline:after {
+        left: 0.35em;
+        width: 0;
+        border-left-color: #f6f7f1;
+        border-left-width: 0.5em;
+    }
+
+    .timeline:before {
+        border-left-style: dotted;
+        height: 120%;
+        top: -10%;
+    }
+
+    .timeline:after {
+        border-left-style: solid;
+        height: 96%;
+        top: 2%;
+    }
+}
+
+/*
+--------------------
+ETAPES
+--------------------
+*/
+
 .timeline > li {
     position: relative;
-    max-width: 9em;
     font-family: 'Quicksand', sans-serif;
-    text-align: center;
-    padding: 1em 0.25em 0;
+}
+
+@media (min-width: 800px) {
+    .timeline > li {
+        max-width: 9em;
+        text-align: center;
+        padding: 1em 0.25em 0;
+    }
+
+    .timeline > li > em {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        left: 0;
+    }
+}
+
+@media (max-width: 799px) {
+    .timeline > li {
+        text-align: left;
+        padding: 0.25em 0 0.25em 2.5em;
+    }
 }
 
 .timeline > li > em {
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    left: 0;
     color: #2d4b89;
 }
 
@@ -1554,17 +1630,39 @@ TIMELINE
     content: "•";
     font-size: 4em;
     position: absolute;
-    top: -1rem;
-    left: calc(50% - 1rem);
 }
 
 .timeline > li:after {
     content: "*";
     font-size: 2em;
     position: absolute;
-    top: -0.55rem;
-    left: calc(50% - 0.45rem);
     color: #ffffff;
+}
+
+@media (min-width: 800px) {
+    .timeline > li:before {
+        top: -1rem;
+        left: calc(50% - 1rem);
+    }
+    
+    .timeline > li:after {
+        top: -0.55rem;
+        left: calc(50% - 0.45rem);
+    }
+}
+
+@media (max-width: 799px) {
+    .timeline > li:before {
+        left: 0;
+        margin-left: -0.385rem;
+        top: calc(50% - 0.875rem);
+    }
+
+    .timeline > li:after {
+        left: 0;
+        top: calc(50% - 0.45rem);
+        margin-left: 0.15rem;
+    }
 }
 
 /*
@@ -1905,6 +2003,12 @@ STEPS
     .step > .wp-block-column {
         margin: 0 !important;
         padding: 2em;
+    }
+}
+
+@media (max-width: 799px) {
+    .step h3 {
+        margin-top: 0.5em !important;
     }
 }
 

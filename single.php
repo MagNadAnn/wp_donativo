@@ -10,7 +10,6 @@ while ( have_posts() ) : the_post();
 
         <div class="cover-img">
             <?php the_post_thumbnail("full"); ?>
-            <div class="featured-slide__frame"></div>
         </div>
         <div class="chimney small section__container page-intro">
             <h1 class="text_center"><?php the_title(); ?></h1>
