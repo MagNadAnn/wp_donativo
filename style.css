@@ -156,7 +156,9 @@ li {
 FIGURES
 */
 
-figure {}
+figure {
+    margin: 3rem;
+}
 
 figcaption {
     text-align: center;
@@ -1379,23 +1381,23 @@ BLOCK PADDING
 */
 
 .block_padding.all {
-    padding: 2em;
+    padding: 2rem;
 }
 
 .block_padding.left {
-    padding-left: 2em;
+    padding-left: 2rem;
 }
 
 .block_padding.right {
-    padding-right: 2em;
+    padding-right: 2rem;
 }
 
 .block_padding.top {
-    padding-top: 2em;
+    padding-top: 2rem;
 }
 
 .block_padding.bottom {
-    padding-bottom: 2em;
+    padding-bottom: 2rem;
 }
 
 /*
@@ -1448,7 +1450,7 @@ PAGE WRAP
 */
 
 .single__content__wrap {
-    padding: 1px 0 4em;
+    padding: 0 0 4em;
 }
 
 /*
@@ -1465,6 +1467,11 @@ IMAGE DE COUVERTURE
     .cover-img {
         margin-bottom: -8em;
     }
+}
+
+.cover-img.placeholder {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /*
@@ -2002,7 +2009,12 @@ STEPS
 
     .step > .wp-block-column {
         margin: 0 !important;
-        padding: 2em;
+        min-width: 50%;
+        box-sizing: border-box;
+    }
+
+    .step > .wp-block-column:nth-child(2) {
+        padding: 2em 4em;
     }
 }
 
@@ -2192,6 +2204,75 @@ signature
     margin: 1em 0;
 }
 
+
+/*
+==========================================================
+==========================================================
+PHOTO
+==========================================================
+==========================================================
+*/
+
+.photo.wp-block-image {
+    margin: 3rem 0 !important;
+}
+
+/*
+--------------------
+FIGURE
+--------------------
+*/
+
+.photo > figure,
+figure.photo {
+    position: relative;
+    display: block !important;
+    width: 80%;
+    float: none !important;
+}
+
+.photo > figure {
+    margin: 0 !important;
+}
+
+.photo > figure.alignright {
+    margin-left: 20% !important;
+}
+
+.wp-block-columns figure.photo,
+.wp-block-columns .photo > figure.aligncenter {
+    width: 100%;
+}
+
+/*
+--------------------
+IMG
+--------------------
+*/
+
+.photo > figure.aligncenter > img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+--------------------
+CAPTION
+--------------------
+*/
+
+.photo > figure > figcaption,
+figure.photo > figcaption {
+    display: block !important;
+    box-sizing: border-box;
+    background-color: #fa5b7d;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    width: 80%;
+    margin: -1em 10% 0 !important;
+    position: relative;
+}
+
 /*
 ==========================================================
 ==========================================================
@@ -2297,57 +2378,6 @@ WORDPRESS ELEMENT
 ==========================================================
 ==========================================================
 */
-
-/*
---------------------
-FIGURES
---------------------
-*/
-
-
-
-figure {
-    position: relative;
-    display: block !important;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
-.wp-block-columns figure:not(.alignleft):not(.alignright):not(.aligncenter) {
-    width: 100%;
-}
-
-.wp-block-columns figure.alignleft,
-.wp-block-columns figure.alignright {
-    width: 80%;
-}
-
-.wp-block-columns figure {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-figure > img {
-    height: auto;
-}
-
-.wp-block-columns figure.aligncenter > img {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-figure > figcaption {
-    display: block !important;
-    box-sizing: border-box;
-    background-color: #fa5b7d;
-    color: #ffffff;
-    padding: 0.5em 1em;
-    width: 80%;
-    margin: -1em 10% 0 !important;
-    position: relative;
-}
-
-
 
 /*
 --------------------
