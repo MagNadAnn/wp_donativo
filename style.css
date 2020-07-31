@@ -1704,6 +1704,12 @@ PAGE
 ==========================================================
 */
 
+@media (min-width: 700px) and (max-width: 1199px) {
+    .erreur-404-wrap {
+        margin-top: 5em !important;
+    }
+}
+
 /*
 --------------------
 PAGE WRAP
