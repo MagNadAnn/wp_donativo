@@ -1228,10 +1228,10 @@ Side drawings
     }
 }
 
-
-@media (min-width:1200px) and (max-width:1699px) {
+@media (min-width:1200px) {
     .side-drawings.small {
         width: calc((100% - 50em) / 2);
+        max-width: 20em;
     }
 }
 
