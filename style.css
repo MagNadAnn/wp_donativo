@@ -74,6 +74,25 @@ a > svg {
 [class*="bg-d"] a:hover, [class*="bg-d"] a:focus { color: #38b08c; background-color: #ffffff; }
 [class*="bg-d"] a:active { color: #4dd1a9; background-color: #ffffff; }
 
+figure > a,
+a.img-link {
+    display: inline-block;
+    background-color: transparent !important;
+    opacity: 0.8;
+}
+
+figure > a:hover,
+figure > a:focus,
+a.img-link:hover,
+a.img-link:focus {
+    opacity: 0.9;
+}
+
+figure > a:active,
+a.img-link:active {
+    opacity: 1;
+}
+
 /*
 --------------------
 TITLES H1, H2, H3, H4, H5, H6
@@ -1045,7 +1064,7 @@ Featured slide
 
 @media (min-width: 700px) {
     .featured-slide.with-frame .featured-slide__content {
-        padding: 4em 0;
+        padding: 3em 0;
     }
 
     .featured-slide.with-frame .featured-slide__content.definitions-wrap {
@@ -1210,30 +1229,51 @@ Triangle
 /*
 ==========================================================
 ==========================================================
-PORTRAIT
+SQUISHED COLUMNS
 ==========================================================
 ==========================================================
 */
 
 
-.portraits {
+.squish-columns {
     justify-content: center;
 }
 
-.portrait {
-    min-width: 9em;
+.squish-columns > .wp-block-column {
     flex-grow: initial;
-    font-family: 'Quicksand', sans-serif;
     text-align: center;
     flex-basis: initial !important;
 }
 
-.portrait > .wp-block-media-text {
+/*
+--------------------
+PORTRAITS
+--------------------
+*/
+
+.portraits.squish-columns > .wp-block-column {
+    min-width: 9em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.portraits.squish-columns > .wp-block-column > .wp-block-media-text {
     display: flex;
     flex-direction: column;
 }
 
-.portrait > .wp-block-media-text > figure {
+/*
+--------------------
+RS
+--------------------
+*/
+
+.RS.squish-columns > .wp-block-column {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.RS.squish-columns figure {
+    margin: 0.5em;
 }
 
 /*
@@ -2165,8 +2205,14 @@ FLIP COLUMNS
 }
 
 @media (min-width: 800px) {
-    .flip-columns {
+    .flip-columns.right {
         flex-direction: row-reverse;
+    }
+
+    .flip-columns > .wp-block-column {
+        flex-basis: initial !important;
+        margin-left: 2em !important;
+        margin-right: 2em !important;
     }
 }
 
@@ -2690,24 +2736,9 @@ WORDPRESS ELEMENT
 
 /*
 --------------------
-FONT SIZES
+FIGURES
 --------------------
 */
-
-figure > a {
-    display: block;
-    background-color: transparent !important;
-    opacity: 0.8;
-}
-
-figure > a:hover,
-figure > a:focus {
-    opacity: 0.9;
-}
-
-figure > a:active {
-    opacity: 1;
-}
 
 .block_margin.no-margin.top > figure { margin-top: 0 !important; }
 .block_margin.no-margin.bottom > figure { margin-bottom: 0 !important; }
