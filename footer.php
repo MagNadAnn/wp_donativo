@@ -56,7 +56,7 @@
                             )); ?>
                             <?php $logo_facebook = get_theme_file_uri("img/logo_facebook.png"); ?>
                             <?php $logo_instagram = get_theme_file_uri("img/logo_instagram.png"); ?>
-                            <p class="block_margin margin top">
+                            <p class="block_margin margin top footer__links">
                                 <a href="https://www.facebook.com/donativo.revelateur.de.solutions.collectives" title="Visiter notre page Facebook" class="img-link"><img src="<?php echo($logo_facebook); ?>" alt="Facebook" class="" /></a>
                                 <a href="#" title="Visiter notre page Instagram" class="img-link"><img src="<?php echo($logo_instagram); ?>" alt="Instagram" class="" /></a>
                             </p>

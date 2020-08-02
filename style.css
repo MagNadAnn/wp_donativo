@@ -1182,45 +1182,61 @@ Side drawings
 }
 
 .side-drawings.top { top: 0; }
-    .side-drawings.bottom { bottom: 0; }
-    .side-drawings.left { left: 0; }
-    .side-drawings.right { right: 0; }
+.side-drawings.bottom { bottom: 0; }
+.side-drawings.left { left: 0; }
+.side-drawings.right { right: 0; }
 
-    .side-drawings.left.top { background-position: top left; }
-    .side-drawings.right.top_1-4 { background-position: top 25% right; }
-    .side-drawings.left.top_1-4 { background-position: top 25% left; }
-    .side-drawings.right.top { background-position: top right; }
-    .side-drawings.left.center { background-position: center left; }
-    .side-drawings.right.center { background-position: center right; }
-    .side-drawings.right.top_3-4 { background-position: top 75% right; }
-    .side-drawings.left.top_3-4 { background-position: top 75% left; }
-    .side-drawings.left.bottom { background-position: bottom left; }
-    .side-drawings.right.bottom { background-position: bottom right; }
+.side-drawings.left.top { background-position: top left; }
+.side-drawings.right.top_1-4 { background-position: top 25% right; }
+.side-drawings.left.top_1-4 { background-position: top 25% left; }
+.side-drawings.right.top { background-position: top right; }
+.side-drawings.left.center { background-position: center left; }
+.side-drawings.right.center { background-position: center right; }
+.side-drawings.right.top_3-4 { background-position: top 75% right; }
+.side-drawings.left.top_3-4 { background-position: top 75% left; }
+.side-drawings.left.bottom { background-position: bottom left; }
+.side-drawings.right.bottom { background-position: bottom right; }
 
-    .side-drawings.standard.left.top { background-image: url(img/deco_standard_01_gauche.png); }
-    .side-drawings.standard.right.bottom { background-image: url(img/deco_standard_01_droite.png); }
+.side-drawings.standard.left.top { background-image: url(img/deco_standard_01_gauche.png); }
+.side-drawings.standard.right.bottom { background-image: url(img/deco_standard_01_droite.png); }
 
-    .side-drawings.dev-loc.left.center { background-image: url(img/deco_experte_01_gauche.png); }
-    .side-drawings.dev-loc.right.top { background-image: url(img/deco_jessica_01_droite.png); }
-    .side-drawings.dev-loc.right.bottom { background-image: url(img/deco_elue_01_droite.png); }
-    
-    .side-drawings.missions.left.top { background-image: url(img/deco_samia_01_gauche.png); }
-    
-    .side-drawings.steps.left.top { background-image: url(img/deco_tache_01_gauche.png); }
-    .side-drawings.steps.right.top_1-4 { background-image: url(img/deco_tache_02_droite.png); }
-    .side-drawings.steps.right.center { background-image: url(img/deco_laura_01_droite.png); }
-    .side-drawings.steps.left.top_3-4 { background-image: url(img/deco_clamecy_01_gauche.png); }
-    .side-drawings.steps.right.bottom { background-image: url(img/deco_carole_01_droite.png); }
+.side-drawings.dev-loc.left.center { background-image: url(img/deco_experte_01_gauche.png); }
+.side-drawings.dev-loc.right.top { background-image: url(img/deco_jessica_01_droite.png); }
+.side-drawings.dev-loc.right.bottom { background-image: url(img/deco_elue_01_droite.png); }
 
-    .side-drawings.definitions.right.bottom.cover { background-image: url(img/deco_definition_01_droite.png); }
-    .side-drawings.definitions.right.bottom.small { background-image: url(img/deco_tache_04_droite.png); bottom: -10em; }
-    
-    .side-drawings.art.left.center { background-image: url(img/deco_experte_02_gauche.png); }
+.side-drawings.missions.left.top { background-image: url(img/deco_samia_01_gauche.png); }
 
-    .side-drawings.secrets.right.top { background-image: url(img/deco_nicolas_01_droite.png); }
-    .side-drawings.secrets.left.bottom { background-image: url(img/deco_HLM-03_01_gauche.png); }
-    
-    .side-drawings.expertises.right.bottom { background-image: url(img/deco_clamecy_02_droite.png); }
+.side-drawings.steps.left.top { background-image: url(img/deco_tache_01_gauche.png); }
+.side-drawings.steps.right.top_1-4 { background-image: url(img/deco_tache_02_droite.png); }
+.side-drawings.steps.right.center { background-image: url(img/deco_laura_01_droite.png); }
+.side-drawings.steps.left.top_3-4 { background-image: url(img/deco_clamecy_01_gauche.png); }
+.side-drawings.steps.right.bottom { background-image: url(img/deco_carole_01_droite.png); }
+
+.side-drawings.definitions.right.bottom.cover { background-image: url(img/deco_definition_01_droite.png); }
+.side-drawings.definitions.right.bottom.small { background-image: url(img/deco_tache_04_droite.png); bottom: -10em; }
+
+.side-drawings.art.left.center { background-image: url(img/deco_experte_02_gauche.png); }
+
+.side-drawings.secrets.right.top { background-image: url(img/deco_nicolas_01_droite.png); }
+.side-drawings.secrets.left.bottom { background-image: url(img/deco_HLM-03_01_gauche.png); }
+
+.side-drawings.expertises.right.bottom { background-image: url(img/deco_clamecy_02_droite.png); }
+
+.carole-01 { background-image: url(img/deco_carole_01_droite.png); }
+.clamecy-01 { background-image: url(img/deco_clamecy_01_gauche.png); }
+.clamecy-02 { background-image: url(img/deco_clamecy_02_droite.png); }
+.elue-01 { background-image: url(img/deco_elue_01_droite.png); }
+.experte-01 { background-image: url(img/deco_experte_01_gauche.png); }
+.experte-02 { background-image: url(img/deco_experte_02_gauche.png); }
+.hlm-01 { background-image: url(img/deco_HLM-03_01_gauche.png); }
+.jessica-01 { background-image: url(img/deco_jessica_01_droite.png); }
+.laura-01 { background-image: url(img/deco_laura_01_droite.png); }
+.nicolas-01 { background-image: url(img/deco_nicolas_01_droite.png); }
+.samia-01 { background-image: url(img/deco_samia_01_gauche.png); }
+.tache-01 { background-image: url(img/deco_tache_01_gauche.png); }
+.tache-02 { background-image: url(img/deco_tache_02_droite.png); }
+.tache-03 { background-image: url(img/deco_tache_03_droite.png); }
+.tache-04 { background-image: url(img/deco_tache_04_droite.png); }
 
 @media (min-width:1024px) {
     .side-drawings {
@@ -2288,12 +2304,6 @@ TEXTE
     color: #f7b90f;
 }
 
-@media (max-width: 799px) {
-    .resume__titre {
-        text-align: left;
-    }
-}
-
 .resume__sous-titre {
     margin: 0.25em 0 0.5em -0.5em;
     font-family: 'Quicksand', sans-serif;
@@ -2301,6 +2311,13 @@ TEXTE
     background-color: #f7b90f;
     padding: 0.125em 0.5em 0.25em;
     display: inline-block;
+}
+
+@media (max-width: 799px) {
+    .resume__titre,
+    .resume__sous-titre {
+        text-align: left;
+    }
 }
 
 /*
@@ -2348,11 +2365,14 @@ STEPS
 ==========================================================
 */
 
+.step {
+    padding: 1em 0;
+}
+
 @media (min-width: 800px) {
 
     .step {
-        display: flex;
-        margin: 0;
+        margin: 2em 0;
     }
 
     .step:nth-child(odd) {
@@ -2694,7 +2714,8 @@ figure.photo {
     float: none !important;
 }
 
-.photo > figure {
+.photo > figure,
+figure.photo {
     margin: 0 !important;
 }
 

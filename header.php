@@ -17,7 +17,7 @@
   <?php wp_head(); ?>
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css">
-  <title><?php bloginfo( 'name' ); ?> - <?php the_title(); ?></title>
+  <title><?php bloginfo( 'name' ); ?> <?php is_front_page() ? bloginfo('description') : wp_title(); ?></title>
   <!-- <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Quicksand:wght@700&display=swap" rel="stylesheet"> -->
 </head>
 <body>

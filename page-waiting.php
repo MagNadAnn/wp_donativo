@@ -12,7 +12,7 @@ Template Name: page d'attente
   <?php wp_head(); ?>
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css">
-  <title><?php bloginfo( 'name' ); ?> - <?php the_title(); ?></title>
+  <title><?php bloginfo( 'name' ); ?> <?php is_front_page() ? bloginfo('description') : wp_title(); ?></title>
 </head>
 <body>
 <?php wp_footer(); ?>

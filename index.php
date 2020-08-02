@@ -11,7 +11,7 @@ while ( have_posts() ) : the_post();
     <?php $thumbnail = get_the_post_thumbnail() ?>
     <?php if ( $thumbnail) : ?>
         <div class="cover-img">
-            <?php the_post_thumbnail("full"); ?>
+            <?php the_post_thumbnail("large"); ?>
         </div>
     <?php else : ?>
         <div class="cover-img placeholder">
