@@ -837,6 +837,7 @@ FOOTER-CTA
 
 .footer-cta {
     position: relative;
+    display: none;
 }
 
 /* -----  déco ----- */
@@ -2133,6 +2134,7 @@ POSTS
     margin: 0.5rem -0.2em;
     font-size: 1.5em;
     font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
 /* ----- extrait ----- */
